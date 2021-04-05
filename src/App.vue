@@ -1,9 +1,19 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="container-fluid">
+    <div id="nav" class="sidenav">
+      <div class="row">
+        <router-link :to="{ name: 'Home' }" class="btn btn-lg m-auto"
+          >Home</router-link
+        >
+      </div>
+      <div class="row mt-5">
+        <router-link :to="{ name: 'Search' }" class="btn btn-lg m-auto"
+          >Search</router-link
+        >
+      </div>
+    </div>
+    <router-view class="main" />
   </div>
-  <router-view />
 </template>
 
 <style>
@@ -15,16 +25,30 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-}
-
 #nav a {
   font-weight: bold;
-  color: #2c3e50;
+  color: #ffffff;
 }
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+
+/* The sidenav */
+.sidenav {
+  height: 100%;
+  width: 15%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 5%;
+}
+
+/* Page content */
+.main {
+  margin-left: 15%; /* Same as the width of the sidenav */
 }
 </style>
